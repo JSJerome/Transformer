@@ -1,16 +1,15 @@
 package io.forlazydevs.transformer.rulebook;
 
 import java.util.Map;
-import java.util.Objects;
 
 import io.forlazydevs.transformer.exceptions.TransformerException;
 
 public class Rulebook {
 
     private Map<String, String> fieldNameRules;
-    private Map<Object, Object> composedTransformRules;
+    private Map<Object, Class<?>> composedTransformRules;
 
-    public void addComposedTransformRules(Map<Object, Object> composedTransformRules) throws TransformerException {
+    public void addComposedTransformRules(Map<Object, Class<?>> composedTransformRules) throws TransformerException {
         validateComposedTransformRules(composedTransformRules);
         if (this.composedTransformRules == null || this.composedTransformRules.isEmpty()) {
             this.composedTransformRules = composedTransformRules;
@@ -30,7 +29,7 @@ public class Rulebook {
        return Map.copyOf(this.composedTransformRules);
    }
 
-   public void resetComposedTransformRules(Map<Object, Object > composedTransformRules) throws TransformerException {
+   public void resetComposedTransformRules(Map<Object, Class<?>> composedTransformRules) throws TransformerException {
         validateComposedTransformRules(composedTransformRules);
        if (this.composedTransformRules == null || this.composedTransformRules.isEmpty()) {
            this.composedTransformRules = composedTransformRules;
@@ -70,21 +69,15 @@ public class Rulebook {
         }
     }
 
-    private void validateComposedTransformRules(Map<Object, Object> composedTransformRules) throws TransformerException {
-        String errorMessage = "Composed Transform Rules must have keys of type Class or String and values of type Class or null";
+    private void validateComposedTransformRules(Map<Object, Class<?>> composedTransformRules) throws TransformerException {
+        String errorMessage = "Composed Transform Rules must have keys of type Class or String.";
         long invalidKeys = composedTransformRules.keySet()
                             .stream()
                             .filter(key -> 
                                 !key.getClass().equals(Class.class)
                                 && !key.getClass().equals(String.class))
                             .count();
-        long invalidValues = composedTransformRules.values()
-                                .stream()
-                                .filter(val -> 
-                                    !val.getClass().equals(Class.class)
-                                    && !Objects.isNull(val))
-                                .count();
-        if(invalidKeys > 0 || invalidValues > 0){
+        if(invalidKeys > 0){
             throw new TransformerException(errorMessage);
         }
     }
