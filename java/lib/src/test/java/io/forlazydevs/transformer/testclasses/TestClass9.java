@@ -1,10 +1,10 @@
-package io.forlazydevs.transformer;
+package io.forlazydevs.transformer.testclasses;
 
-public class TestClass5 {
+public class TestClass9 {
     private int fieldOne;
     private boolean fieldTwo;
 
-    public TestClass5() {}
+    public TestClass9() {}
 
     public int getFieldOne(){
         return this.fieldOne;

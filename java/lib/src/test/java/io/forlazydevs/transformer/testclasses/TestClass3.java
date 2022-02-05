@@ -1,4 +1,4 @@
-package io.forlazydevs.transformer;
+package io.forlazydevs.transformer.testclasses;
 
 import io.forlazydevs.transformer.annotations.TransformComposed;
 import io.forlazydevs.transformer.annotations.TransformIdentity;

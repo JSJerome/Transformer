@@ -1,4 +1,4 @@
-package io.forlazydevs.transformer;
+package io.forlazydevs.transformer.testclasses;
 
 public class TestClass6 {
     private String id = "123456";

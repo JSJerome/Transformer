@@ -1,6 +1,7 @@
 package io.forlazydevs.transformer.rulebook;
 
 import java.util.Map;
+import java.util.Map.Entry;
 
 import io.forlazydevs.transformer.exceptions.TransformerException;
 
@@ -17,7 +18,7 @@ public class Rulebook {
      */
     public void addComposedTransformRules(Map<Object, Class<?>> composedTransformRules) throws TransformerException {
         validateComposedTransformRules(composedTransformRules);
-        if (this.composedTransformRules == null || this.composedTransformRules.isEmpty()) {
+        if (!hasComposedRules()) {
             this.composedTransformRules = composedTransformRules;
         }
         else {
@@ -31,7 +32,7 @@ public class Rulebook {
      * @param fieldNameRules - A Map of strings where the key represents the field name in the object to transform and the value represents the field name in the class you want to transform the key into.
      */
     public void addFieldNameRules(Map<String, String> fieldNameRules) {
-        if (this.fieldNameRules == null || this.fieldNameRules.isEmpty()) {
+        if (!hasFieldRules()){
             this.fieldNameRules = fieldNameRules;
         }
         else {
@@ -43,7 +44,7 @@ public class Rulebook {
     * Clears the composed transform rules from the rule book.
     */
    public void clearComposedTransformRules() {
-       if (this.composedTransformRules != null && !this.composedTransformRules.isEmpty()) {
+       if (hasComposedRules()) {
            this.composedTransformRules.clear();
        }
    }
@@ -52,7 +53,7 @@ public class Rulebook {
      * Clears the field name rules from the rule book.
      */
     public void clearFieldNameRules() {
-        if (this.fieldNameRules != null && !this.fieldNameRules.isEmpty()) {
+        if (hasFieldRules()) {
             this.fieldNameRules.clear();
         }
     }
@@ -102,7 +103,7 @@ public class Rulebook {
     */
    public void resetComposedTransformRules(Map<Object, Class<?>> composedTransformRules) throws TransformerException {
         validateComposedTransformRules(composedTransformRules);
-       if (this.composedTransformRules == null || this.composedTransformRules.isEmpty()) {
+       if (!hasComposedRules()) {
            this.composedTransformRules = composedTransformRules;
        }
        else {
@@ -117,7 +118,7 @@ public class Rulebook {
      * @param fieldNameRules - A Map of strings where the key represents the field name in the object to transform and the value represents the field name in the class you want to transform the key into.
      */
     public void resetFieldNameRules(Map<String, String> fieldNameRules) {
-        if (this.fieldNameRules == null || this.fieldNameRules.isEmpty()) {
+        if (!hasFieldRules()) {
             this.fieldNameRules = fieldNameRules;
         }
         else {
