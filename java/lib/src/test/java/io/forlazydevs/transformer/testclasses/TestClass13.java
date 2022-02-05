@@ -1,5 +1,0 @@
-package io.forlazydevs.transformer.testclasses;
-
-public class TestClass13 {
-   private long id = 123L; 
-}

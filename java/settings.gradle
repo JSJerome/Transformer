@@ -8,4 +8,4 @@
  */
 
 rootProject.name = 'Transformer'
-include('lib')
+include('Transformer')
