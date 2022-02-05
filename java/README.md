@@ -338,4 +338,120 @@ Field name rules are provided to the rule book in the form of a `Map<Object,Clas
      four = "abcde"
  ]
  ```
+## Classes
+
+### Transformer
+
+A class with a static `transform` method to transform.
+
+#### transform()
+
+```text
+Transforms an object into the specified class. 
+
+Params
+Object toTransform - The object to transform.
+Class<T> transformationClass - The class to transform the toTransform object into.
+rules - Rules to apply to the transformation. (Optional)
+
+Returns
+T - A new instance of the transformationClass.
+
+Throws
+TransformerException - If the transformer cannot transform the object. 
+```
+
+### Rulebook
+
+A class containing rules to apply to transformations.
+
+#### addComposedTransformRules()
+
+```text
+Adds composed transform rules to the rule book for the transformation.
+
+Params
+Map<Object,Class<?>> composedTransformRules - A map where the key is either a String representing the field name or a Class representing the type of the field in the object to transform. The Value is the Class to transform the field into or null if you wish to leave the value of the field alone.
+
+Throws
+TransformerException - If the Key is not a String or Class.
+```
+
+#### addFieldNameRules()
+```text
+Adds field name rules to the rule book for the transformation.
+
+Params
+Map<String, String> fieldNameRules - A Map of strings where the key represents the field name in the object to transform and the value represents the field name in the class you want to transform the key into.
+```
+
+#### clearComposedTransformRules()
+
+```text
+Clears the composed transform rules from the rule book.
+```
+
+#### clearFieldNameRules()
+
+```text
+Clears the field name rules from the rule book.
+```
+
+#### getComposedRules()
+
+```text
+Retrieves the composed transform rules from the rule book.
+
+Returns
+Map<Object, Class<?>> - Returns the map of composed transform rules from the rule book.
+```
+
+#### getFieldNameRules()
+
+```text
+Retrieves the field name rules from the rule book.
+
+Returns
+Map<String, String> - Returns the map of field name rules from the rule book.
+```
+
+#### hasComposedRules()
+
+```text
+Determines if the rule book has composed transform rules.
+
+Returns
+boolean - A flag representing if the rule book has composed transform rules.
+```
+
+#### hasFieldRules()
+
+```text
+Determines if the rule book has field name rules.
+
+Returns
+boolean - A flag representing if the rule book has field name rules.
+```
+
+#### resetComposedTransformRules()
+
+```text
+Removes any existing composed transform rules in the rule book and replaces them with the specified rules.
+
+Params
+Map<Object,Class<?>> composedTransformRules - A map where the key is either a String representing the field name or a Class representing the type of the field in the object to transform. The Value is the Class to transform the field into or null if you wish to leave the value of the field alone.
+
+Throws
+TransformerException -  If the Key is not a String or Class.
+```
+
+#### resetFieldNameRules()
+
+```text
+Removes any existing field name rules in the rule book and replaces them with the specified rules.
+
+Params
+Map<String,String> fieldNameRules - A Map of strings where the key represents the field name in the object to transform and the value represents the field name in the class you want to transform the key into.
+```
+
 
