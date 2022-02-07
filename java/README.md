@@ -37,6 +37,14 @@
 
  To use the transformer, your Java classes must have a public no-args constructor.
 
+ ## Installation
+
+ Add the following to the dependencies section of your build.gradle. 
+
+```groovy
+compile 'com.forlazydevs:transformer:1.0.0'
+```
+
  ## Rulebook
 
  To have more fine-grain control over the transformation, the `transform()` method accepts a third parameter of the `Rulebook` type.

@@ -62,7 +62,7 @@ public class Rulebook {
    /** 
     * Retrieves the composed transform rules from the rule book.
     *
-    * @return Map<Object, Class<?>> - Returns the map of composed transform rules from the rule book.
+    * @return Map&lt;Object, Class&lt;?&gt;&gt; - Returns the map of composed transform rules from the rule book.
     */
    public Map<Object, Class<?>> getComposedRules() {
        return Map.copyOf(this.composedTransformRules);
@@ -70,7 +70,7 @@ public class Rulebook {
 
    /** 
      * Retrieves the field name rules from the rule book.
-     * @return Map<String, String> - Returns the map of field name rules from the rule book.
+     * @return Map&lt;String, String&gt; - Returns the map of field name rules from the rule book.
      */
     public Map<String, String> getFieldNameRules() {
         return Map.copyOf(this.fieldNameRules);
